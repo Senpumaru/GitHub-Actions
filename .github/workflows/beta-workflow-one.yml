@@ -20,6 +20,7 @@ jobs:
       - name: Run Linting
         run: npm lint
   test:
+    needs: lint
     runs-on: ubuntu-24.04
     defaults:
       run:
@@ -36,7 +37,7 @@ jobs:
       - name: Run Tests
         run: npm test
   deploy:
-    needs: [lint, test]
+    needs: test
     runs-on: ubuntu-24.04
     defaults:
       run:
