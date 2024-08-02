@@ -1,0 +1,33 @@
+name: Theta - Events Demo 2
+on: 
+  pull_request:
+    types: [opened, edited]
+    branches:
+      - main
+      - 'dev-*' # dev-new dev-that-is-new
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - 'dev-*' # dev-new dev-that-is-new
+    paths-ignore:
+      - '.github/workflows/*'
+jobs:
+  deploy:
+    defaults:
+      run:
+        working-directory: NodeTheta
+    runs-on: ubuntu-24.04
+    steps:
+      # - name: Output event data
+      #   run: echo "${{ toJSON(github.event) }}"
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Test code
+        run: npm run test
+      - name: Build code
+        run: npm run build
+      - name: Deploy project
+        run: echo "Deploying..."
