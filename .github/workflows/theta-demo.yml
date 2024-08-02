@@ -2,7 +2,16 @@ name: Theta - Events Demo 1
 on: 
   pull_request:
     types: [opened, edited]
+    branches:
+      - main
+      - 'dev-*' # dev-new dev-that-is-new
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - 'dev-*' # dev-new dev-that-is-new
+    paths-ignore:
+      - '.github/workflows/*'
 jobs:
   deploy:
     defaults:
