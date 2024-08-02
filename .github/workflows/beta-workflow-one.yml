@@ -1,6 +1,6 @@
 # This is second workflow to help you get started with Actions
 
-name: Deploy Node.js Project
+name: Deploy Node.js Beta Project
 on: [push, workflow_dispatch]
 jobs:
   lint:
