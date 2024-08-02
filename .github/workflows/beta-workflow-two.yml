@@ -1,5 +1,5 @@
 name: Beta Project Output information
-on: workflow_dispatch
+on: [workflow_dispatch, issues]
 jobs:
   info:
     runs-on: ubuntu-24.04
