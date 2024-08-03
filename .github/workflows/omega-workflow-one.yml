@@ -19,9 +19,17 @@ jobs:
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb+srv
       MONGODB_CLUSTER_ADDRESS: zero.cmd0mdf.mongodb.net
-      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
-      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      # MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }} These are if you are using production
+      # MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }} instead of service container
+      MONGODB_USERNAME: root
+      MONGODB_PASSWORD: example
       PORT: 8080
+    services:
+      mongodb: # Could be any name
+        image: mongo
+        env: 
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: example
     steps:
       - name: Get Code
         uses: actions/checkout@v4
