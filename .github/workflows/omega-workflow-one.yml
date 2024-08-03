@@ -17,8 +17,10 @@ jobs:
       run:
         working-directory: ProjectOmega
     env:
-      MONGODB_CONNECTION_PROTOCOL: mongodb+srv
-      MONGODB_CLUSTER_ADDRESS: zero.cmd0mdf.mongodb.net
+      # MONGODB_CONNECTION_PROTOCOL: mongodb+srv
+      # MONGODB_CLUSTER_ADDRESS: zero.cmd0mdf.mongodb.net
+      MONGODB_CONNECTION_PROTOCOL: mongodb
+      MONGODB_CLUSTER_ADDRESS: mongodb
       # MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }} These are if you are using production
       # MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }} instead of service container
       MONGODB_USERNAME: root
