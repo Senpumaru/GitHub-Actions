@@ -19,7 +19,7 @@ jobs:
     env:
       # MONGODB_CONNECTION_PROTOCOL: mongodb+srv
       # MONGODB_CLUSTER_ADDRESS: zero.cmd0mdf.mongodb.net
-      MONGODB_CONNECTION_PROTOCOL: mongodb
+      MONGODB_CONNECTION_PROTOCOL: mongodb # or 127.0.0.1:27017
       MONGODB_CLUSTER_ADDRESS: mongodb
       # MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }} These are if you are using production
       # MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }} instead of service container
@@ -29,6 +29,8 @@ jobs:
     services:
       mongodb: # Could be any name
         image: mongo
+        ports:
+          - 27017:27017
         env: 
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: example
