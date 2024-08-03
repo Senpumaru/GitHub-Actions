@@ -11,7 +11,7 @@ function HelpBox({ title, text }) {
   );
 }
 
-HellBox.propTypes = {
+HelpBox.propTypes = {
   title: string,
   text: string,
 };
